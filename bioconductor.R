@@ -17,6 +17,7 @@ library(BSgenome.Scerevisiae.UCSC.sacCer3)
 help("BSgenome")
 
 
+setwd("/home/deng/Educations/rna-seq/")
 
 A <- "try1"
 isS4(A)
@@ -65,3 +66,30 @@ getSeq(yeastGenome, names = "chrM", start=1, end = 30)
 library(Biostrings)
 
 dna_seq <- DNAString("ATGATCTCGTAA")
+
+zikaVirus <- readDNAStringSet('data/zikavirus.fa')
+# Create zikv with one collated sequence using `zikaVirus`
+zikv <- unlist(zikaVirus)
+zikv
+
+# Check the length of zikaVirus and zikv
+length(zikaVirus)
+length(zikv)
+
+# Check the width of zikaVirus
+width(zikaVirus)
+# Subset zikv to only the first 30 bases
+subZikv <- subseq(zikv, end = 30)
+subZikv
+
+# Reverse the zikv sequence
+reverse(zikv)
+
+# Complement the zikv sequence
+complement(zikv)
+
+# Reverse complement the zikv sequence
+reverseComplement(zikv)
+
+# Translate the zikv sequence
+translate(zikv)
